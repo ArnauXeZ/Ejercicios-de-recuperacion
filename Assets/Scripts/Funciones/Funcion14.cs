@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class Funcion14 : MonoBehaviour
 {
-    public void DesplazarIzquierda()
+    [SerializeField] private float velocidad = 1f;
+
+    void Desplazar()
     {
-        transform.position += Vector3.left;
+        transform.Translate(Vector3.left * velocidad * Time.deltaTime);
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Desplazar();
+        }
+
     }
 }

@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Funcion9 : MonoBehaviour
 {
-    void EmpiezaPorA(string palabra)
+    [SerializeField] private string palabraPrueba = "Hola"; 
+
+    
+    void ComprobarInicioConA(string palabra)
     {
-        if (palabra.ToLower().StartsWith("a"))
+        char primerCaracter = char.ToLower(palabra[0]); 
+
+        if (primerCaracter == 'a')
         {
-            Debug.Log("La palabra empieza por " + palabra[0]);
+            Debug.Log("La palabra empieza por " + primerCaracter);
         }
         else
         {
             Debug.Log("La palabra no empieza por la letra a / A");
         }
+    }
+
+    
+    void Start()
+    {
+        ComprobarInicioConA(palabraPrueba);
     }
 }

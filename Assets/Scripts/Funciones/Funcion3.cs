@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Funcion3 : MonoBehaviour
 {
-    void EsMenorOIgualACero(float numero)
+    [SerializeField] private float numeroPrueba = -2.5f; 
+
+    
+    void VerificarMenorIgualCero(float numero)
     {
-        if (numero <= 0f)
+        if (numero <= 0)
         {
             Debug.Log("El número es menor o igual a 0");
         }
@@ -14,5 +17,11 @@ public class Funcion3 : MonoBehaviour
         {
             Debug.Log("El número es mayor que 0");
         }
+    }
+
+    
+    void Start()
+    {
+        VerificarMenorIgualCero(numeroPrueba);
     }
 }

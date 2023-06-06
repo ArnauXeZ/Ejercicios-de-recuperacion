@@ -6,29 +6,50 @@ using System.Globalization;
 
 public class Funcion8 : MonoBehaviour
 {
+    [SerializeField] private string mesPrueba = "july"; 
+
+    
     string ObtenerEstacionDelAnio(string mes)
     {
-        int month = DateTime.ParseExact(mes, "MMMM", CultureInfo.InvariantCulture).Month;
-        switch (month)
+        switch (mes)
         {
-            case 12:
-            case 1:
-            case 2:
-                return "winter";
-            case 3:
-            case 4:
-            case 5:
-                return "spring";
-            case 6:
-            case 7:
-            case 8:
-                return "summer";
-            case 9:
-            case 10:
-            case 11:
-                return "autumn";
+            case "december":
+            case "january":
+            case "february":
+                return "invierno";
+
+            case "march":
+            case "april":
+            case "may":
+                return "primavera";
+
+            case "june":
+            case "july":
+            case "august":
+                return "verano";
+
+            case "september":
+            case "october":
+            case "november":
+                return "otoño";
+
             default:
-                return "mes inválido";
+                return "invalid"; 
+        }
+    }
+
+    
+    void Start()
+    {
+        string estacion = ObtenerEstacionDelAnio(mesPrueba);
+
+        if (estacion != "invalid")
+        {
+            Debug.Log("El mes de " + mesPrueba + " corresponde a la estación de " + estacion + ".");
+        }
+        else
+        {
+            Debug.Log("El mes " + mesPrueba + " no es válido.");
         }
     }
 }

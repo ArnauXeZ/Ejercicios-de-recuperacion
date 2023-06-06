@@ -6,19 +6,18 @@ using System.Globalization;
 
 public class Funcion19 : MonoBehaviour
 {
-    public class Escala : MonoBehaviour
+    
+    void Aumentar()
     {
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Escalar();
-            }
-        }
+        transform.localScale += new Vector3(1f, 1f, 1f);
+    }
 
-        void Escalar()
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.localScale += new Vector3(1, 1, 1);
+            Aumentar();
         }
     }
 }

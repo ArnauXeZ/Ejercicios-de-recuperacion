@@ -3,21 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Funcion21 : MonoBehaviour
-{     
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ReducirEscala();
-            }
-        }
-
-        void ReducirEscala()
-        {
-            if (transform.localScale.x > 1 && transform.localScale.y > 1 && transform.localScale.z > 1)
-            {
-                transform.localScale -= new Vector3(1, 1, 1);
-            }
-        }
+{
     
+    public Material objetoMaterial;
+
+    
+    Color GenerarColorAleatorio()
+    {
+        float r = Random.Range(0f, 1f); 
+        float g = Random.Range(0f, 1f); 
+        float b = Random.Range(0f, 1f); 
+
+        return new Color(r, g, b);
+    }
+
+    
+    void Start()
+    {
+        Color colorAleatorio = GenerarColorAleatorio();
+        CambiarColorObjeto(colorAleatorio);
+    }
+
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Color colorAleatorio = GenerarColorAleatorio();
+            CambiarColorObjeto(colorAleatorio);
+        }
+    }
+
+    
+    void CambiarColorObjeto(Color color)
+    {
+        objetoMaterial.color = color;
+    }
 }

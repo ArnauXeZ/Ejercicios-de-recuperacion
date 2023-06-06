@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Funcion11 : MonoBehaviour
 {
-    public void ComprobarGameOver()
+    [SerializeField] private bool gameOver = false; 
+
+    
+    void ComprobarGameOver()
     {
-        bool gameOver = false; // Puedes cambiar esto para probar el comportamiento de la función
         if (!gameOver)
         {
             Debug.Log("Seguimos vivos");
@@ -15,5 +17,11 @@ public class Funcion11 : MonoBehaviour
         {
             Debug.Log("GAME OVER");
         }
+    }
+
+    
+    void Start()
+    {
+        ComprobarGameOver();
     }
 }

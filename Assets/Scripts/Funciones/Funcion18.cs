@@ -4,8 +4,41 @@ using UnityEngine;
 
 public class Funcion18 : MonoBehaviour
 {
-    public void DesplazarEnDireccion(Vector3 direccion)
+    [SerializeField] private float velocidad = 1f; 
+
+    
+    void Desplazar(Vector3 direccion)
     {
-        transform.position += direccion;
+        transform.Translate(direccion * velocidad * Time.deltaTime);
+    }
+
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Desplazar(Vector3.right);
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            Desplazar(Vector3.left);
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            Desplazar(Vector3.up);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            Desplazar(Vector3.down);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Desplazar(Vector3.back);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            Desplazar(Vector3.forward);
+        }
     }
 }
+
