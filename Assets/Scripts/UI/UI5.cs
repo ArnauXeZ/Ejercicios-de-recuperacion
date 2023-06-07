@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI5 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Slider slider;
+    public Image filledImage;
+
+    private void Start()
     {
-        
+        slider.onValueChanged.AddListener(OnSliderValueChanged);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnSliderValueChanged(float value)
     {
-        
+        filledImage.fillAmount = value;
     }
 }

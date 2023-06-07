@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI7 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ParticleSystem particleSystem;
+    private Button startButton;
+    private Button stopButton;
+
+    private void Start()
     {
-        
+        startButton = GameObject.Find("StartButton").GetComponent<Button>();
+        startButton.onClick.AddListener(StartParticleSystem);
+
+        stopButton = GameObject.Find("StopButton").GetComponent<Button>();
+        stopButton.onClick.AddListener(StopParticleSystem);
+
+        particleSystem.Stop(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void StartParticleSystem()
     {
-        
+        particleSystem.Play(); 
+    }
+
+    private void StopParticleSystem()
+    {
+        particleSystem.Stop();
     }
 }
